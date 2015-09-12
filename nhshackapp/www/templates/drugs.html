@@ -21,9 +21,9 @@
         <ion-item class="no-results item-text-wrap" ng-hide="submitted || !loaded">
             No popular items. Hit search to look for more.
         </ion-item>      
-        <ion-item class="no-results item-text-wrap" ng-show="search.lastSubmitted">
+        <ion-item class="no-results item-text-wrap" ng-show="submitted && loaded && !drugs.length">
             Sory, there are no results for {{search.lastSubmitted}}. Tap the button below to see all popular items, or search again.
-        <button class="button button-stable button-block" ng-show="search.lastSubmitted" ng-click="restart()">
+        <button class="button button-stable button-block" ng-show="submitted && loaded && !drugs.length" ng-click="restart()">
             See all
         </button>
         </ion-item>  
