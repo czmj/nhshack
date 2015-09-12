@@ -21,6 +21,15 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 // Include all of Ionic
 @import "www/lib/ionic/scss/ionic";
 
+$colorvars: (light, $light), (stable, $stable), (positive, $positive), (calm, $calm), (balanced, $balanced), (energized, $energized), (assertive, $assertive), (royal, $royal), (dark, $dark);
+
+//text colors
+@each $name, $color in $colorvars {
+    .text-#{$name} {
+      color: $color;
+    }
+}
+
 .item-input-wrapper {
     background: transparent;
     padding: 0;
@@ -28,4 +37,14 @@ $ionicons-font-path: "../lib/ionic/fonts" !default;
 
 .item-main {
     font-size: 150%;
+}
+
+.item-floating-label {
+    .input-label {
+        color: $positive;
+    }
+}
+
+.item-result + .no-results {
+    display: none;
 }

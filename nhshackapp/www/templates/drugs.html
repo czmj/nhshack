@@ -13,11 +13,20 @@
             </button>
           </div>
         </form>
-        <div class="item item-divider" ng-hide="submitted">Popular searches:</div>
-        <ion-item class="item-icon-right" ng-repeat="drug in drugs | filter: search.text | limitTo: 50 track by $index" href="#/app/drugs/disambiguation/{{drug.VPID}}">
+        <ion-item class="item-divider" ng-hide="submitted">Popular searches:</ion-item>
+        <ion-item class="item-result item-icon-right" ng-repeat="drug in drugs | filter: search.text | limitTo: 50 track by $index" href="#/app/drugs/disambiguation/{{drug.VPID}}">
             {{drug.ANAME}}
             <i class="icon ion-ios-arrow-forward"></i>
-        </ion-item>
+        </ion-item>        
+        <ion-item class="no-results item-text-wrap" ng-hide="submitted || !loaded">
+            No popular items. Hit search to look for more.
+        </ion-item>      
+        <ion-item class="no-results item-text-wrap" ng-show="search.lastSubmitted">
+            Sory, there are no results for {{search.lastSubmitted}}. Tap the button below to see all popular items, or search again.
+        <button class="button button-stable button-block" ng-show="search.lastSubmitted" ng-click="restart()">
+            See all
+        </button>
+        </ion-item>  
     </ion-list>
   </ion-content>
 </ion-view>

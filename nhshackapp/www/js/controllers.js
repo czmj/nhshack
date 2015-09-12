@@ -42,16 +42,30 @@ angular.module('starter.controllers', [])
 })
 
 .controller('drugsCtrl', function($scope, Drugs) {
-    $scope.search = {};
-    
-    $scope.drugs = Drugs.query({search: ' '}, function() {
-    });
     
     $scope.submit = function() {
+        $scope.loaded = false;
+        $scope.search.lastSubmitted = $scope.search.text;
+        
         $scope.drugs = Drugs.query({search: $scope.search.text}, function() {
             $scope.submitted = true;
+            $scope.loaded = true;
         });
     }
+    
+    $scope.restart = function() {
+        $scope.submitted = false;
+        $scope.loaded = false;
+        $scope.search = {};
+        
+        $scope.drugs = Drugs.query({search: ' '}, function() {
+            $scope.loaded = true;
+        });
+    }
+    
+    //on page load
+    $scope.restart();
+        
 })
 .controller('disambiguationCtrl', function($scope, Drugs) {
 

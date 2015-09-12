@@ -7700,9 +7700,42 @@ a.button {
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
 
+.text-light {
+  color: #fff; }
+
+.text-stable {
+  color: #f8f8f8; }
+
+.text-positive {
+  color: #387ef5; }
+
+.text-calm {
+  color: #11c1f3; }
+
+.text-balanced {
+  color: #33cd5f; }
+
+.text-energized {
+  color: #ffc900; }
+
+.text-assertive {
+  color: #ef473a; }
+
+.text-royal {
+  color: #886aea; }
+
+.text-dark {
+  color: #444; }
+
 .item-input-wrapper {
   background: transparent;
   padding: 0; }
 
 .item-main {
   font-size: 150%; }
+
+.item-floating-label .input-label {
+  color: #387ef5; }
+
+.item-result + .no-results {
+  display: none; }
