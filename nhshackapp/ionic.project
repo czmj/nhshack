@@ -1,6 +1,6 @@
 {
   "name": "nhshackapp",
-  "app_id": "",
+  "app_id": "db1dccb9",
   "gulpStartupTasks": [
     "sass",
     "watch"

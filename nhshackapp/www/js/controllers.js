@@ -41,10 +41,11 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('drugsCtrl', function($scope, dataSvc) {
-  $scope.drugs = dataSvc.getDrugs();
+.controller('drugsCtrl', function($scope, Drugs) {
+    $scope.drugs = Drugs.query(function() {
+    });
 })
 
-.controller('drugCtrl', function($scope, $stateParams, dataSvc) {
-    $scope.drug = dataSvc.getDrug($stateParams.drugId);
+.controller('drugCtrl', function($scope, $stateParams, Drugs) {
+
 });
