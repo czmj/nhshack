@@ -1,0 +1,23 @@
+<ion-view view-title="Medications">
+  <ion-content>
+    
+    <ion-list>
+        <ion-item class="item-icon-right item-main" href="#/app/drugs/{{genericDrug.APID}}">
+            {{genericDrug.ANAME}} Generic name
+            <i class="icon ion-ios-arrow-forward"></i>
+        </ion-item>
+        <ion-item class="item-icon-right" href="#/app/drugs/{{drug.APID}}">
+            {{drug.ANAME}} brand 1
+            <i class="icon ion-ios-arrow-forward"></i>
+        </ion-item>
+        <ion-item class="item-icon-right" href="#/app/drugs/{{drug.APID}}">
+            {{drug.ANAME}} brand 2
+            <i class="icon ion-ios-arrow-forward"></i>
+        </ion-item>
+        <ion-item class="item-icon-right" href="#/app/drugs/{{drug.APID}}">
+            {{drug.ANAME}} brand 3
+            <i class="icon ion-ios-arrow-forward"></i>
+        </ion-item>
+    </ion-list>
+  </ion-content>
+</ion-view>

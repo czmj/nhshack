@@ -9,12 +9,12 @@
                 <input type="text"  placeholder="Search for a drug" ng-model="search.text">    
             </label>
             <button class="button button-positive button-small">
-                Submit
+                Search
             </button>
           </div>
         </form>
         <div class="item item-divider" ng-hide="submitted">Popular searches:</div>
-        <ion-item class="item-icon-right" ng-repeat="drug in drugs | filter: search.text | limitTo: 50 track by $index" href="#/app/drugs/{{drug.APID}}">
+        <ion-item class="item-icon-right" ng-repeat="drug in drugs | filter: search.text | limitTo: 50 track by $index" href="#/app/drugs/disambiguation/{{drug.VPID}}">
             {{drug.ANAME}}
             <i class="icon ion-ios-arrow-forward"></i>
         </ion-item>

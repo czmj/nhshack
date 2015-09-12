@@ -44,14 +44,17 @@ angular.module('starter.controllers', [])
 .controller('drugsCtrl', function($scope, Drugs) {
     $scope.search = {};
     
-    $scope.drugs = Drugs.query(function() {
-    });    
+    $scope.drugs = Drugs.query({search: ' '}, function() {
+    });
     
     $scope.submit = function() {
         $scope.drugs = Drugs.query({search: $scope.search.text}, function() {
             $scope.submitted = true;
         });
     }
+})
+.controller('disambiguationCtrl', function($scope, Drugs) {
+
 })
 
 .controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs) {

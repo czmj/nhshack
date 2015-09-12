@@ -31,6 +31,15 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
     templateUrl: 'templates/menu.html',
     controller: 'AppCtrl'
   })
+    .state('app.disambiguation', {
+      url: '/drugs/disambiguation/:VPID',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/disambiguation.html',
+          controller: 'disambiguationCtrl'
+        }
+      }
+    })
     .state('app.drugs', {
       url: '/drugs',
       views: {
