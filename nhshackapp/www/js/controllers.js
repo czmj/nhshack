@@ -47,5 +47,15 @@ angular.module('starter.controllers', [])
 })
 
 .controller('drugCtrl', function($scope, $stateParams, Drugs) {
+    var drugs = Drugs.query(function() {
+        var i;
+        
+        for (i=0; i<drugs.length; i++){
+            if(drugs[i].id.toString() === $stateParams.drugId){
+                $scope.drug = drugs[i];
+                return;
+            }
+        }
+    });
 
 });

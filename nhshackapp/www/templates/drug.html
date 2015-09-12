@@ -10,7 +10,7 @@
           Dose (mg)
         </div>
         <select>
-          <option ng-repeat="dose in drug.doses" value="{{dose}}">{{dose}}</option>
+          <option ng-repeat="dose in drug.doses | orderBy: dose" value="{{dose}}">{{dose}}</option>
         </select>
       </label>
         

@@ -5,6 +5,6 @@
         .factory('Drugs', Drugs);
 
     function Drugs($resource){          
-        return $resource('data/dummyDrugs.json');;                
+        return $resource('data/dummyDrugs.json');               
     }
 })();
