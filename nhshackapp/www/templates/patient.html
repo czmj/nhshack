@@ -1,0 +1,47 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-stable">
+    <h1 class="title">Patient Info</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closePatient()">Close</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+    <form ng-submit="submitPresceiption()" class="padding">
+      <div class="list">
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Patient Name</span>
+          <input type="text" placeholder="Patient name" ng-model="patient.name">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">GP Surgery</span>
+          <input type="text" placeholder="GP Surgery" ng-model="patient.surgery">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">GP Name</span>
+          <input type="text" placeholder="GP name" ng-model="patient.gp">
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Patient postcode</span>
+          <input type="text" placeholder="Patient postcode" ng-model="patient.postcode">
+        </label>
+        <label class="item item-input item-select">
+            <div class="input-label">
+              Gender
+            </div>
+            <select>
+              <option>Male</option>
+              <option>Female</option>
+              <option>Indeterminate</option>
+            </select>
+        </label>
+        <label class="item item-input item-floating-label">
+          <span class="input-label">Patient age</span>
+          <input type="number" placeholder="Patient age" ng-model="patient.age">
+        </label>
+        <button class="button button-block button-positive" type="submit">
+          Submit
+        </button>
+        </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

@@ -49,7 +49,8 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
         controller: 'drugCtrl'
       }
     }
-  });
+  })
+  
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/drugs');
 });

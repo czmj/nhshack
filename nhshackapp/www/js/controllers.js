@@ -46,7 +46,7 @@ angular.module('starter.controllers', [])
     });
 })
 
-.controller('drugCtrl', function($scope, $stateParams, Drugs) {
+.controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs) {
     var drugs = Drugs.query(function() {
         var i;
         
@@ -57,5 +57,22 @@ angular.module('starter.controllers', [])
             }
         }
     });
+    
+      $scope.patient = {};
+
+      $ionicModal.fromTemplateUrl('templates/patient.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.modal = modal;
+      });
+
+      $scope.closePatient = function() {
+        $scope.modal.hide();
+      };
+
+      $scope.openPatientInfo = function() {
+          console.log('ping');
+        $scope.modal.show();
+      };
 
 });

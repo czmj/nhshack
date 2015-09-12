@@ -7,10 +7,10 @@
 
       <label class="item item-input item-select">
         <div class="input-label">
-          Dose (mg)
+          Strength (mg)
         </div>
         <select>
-          <option ng-repeat="dose in drug.doses | orderBy: dose" value="{{dose}}">{{dose}}</option>
+          <option ng-repeat="dose in drug.doses | orderBy: dose track by $index" value="{{dose}}">{{dose}}</option>
         </select>
       </label>
         
@@ -25,7 +25,7 @@
             <span class="input-label">NHS Number</span>
             <input type="number" placeholder="NHS number">
         </label>
-        <button type="button" class="button button-clear button-positive">
+        <button type="button" class="button button-clear button-positive" ng-click="openPatientInfo()">
           <i class="icon ion-help"></i>
         </button>
       </div>
