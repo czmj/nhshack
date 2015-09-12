@@ -1,7 +1,39 @@
 <ion-view view-title="{{drug.name}}">
-  <ion-content>
+  <ion-content class="padding">
     <h1>{{drug.name}}</h1>
     <p>{{drug.description}}</p>
+      
+    <form class="list">
+
+      <label class="item item-input item-select">
+        <div class="input-label">
+          Dose (mg)
+        </div>
+        <select>
+          <option ng-repeat="dose in drug.doses" value="{{dose}}">{{dose}}</option>
+        </select>
+      </label>
+        
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Quantity</span>
+        <input type="number" placeholder="Quantity">
+      </label>    
+        
+      
+      <div class="item item-input-inset">
+        <label class="item-input-wrapper item-floating-label">
+            <span class="input-label">NHS Number</span>
+            <input type="number" placeholder="NHS number">
+        </label>
+        <button type="button" class="button button-clear button-positive">
+          <i class="icon ion-help"></i>
+        </button>
+      </div>
+    <button class="button button-block button-positive" type="submit">
+      Submit
+    </button>
+        
+    </form>
     
   </ion-content>
 </ion-view>

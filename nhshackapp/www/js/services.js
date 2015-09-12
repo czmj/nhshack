@@ -20,31 +20,37 @@
                 { 
                     name: 'A drug', 
                     description: 'sflkjs fd jslkfj sdlkfj sdklfj sdlkjf kslj f',
+                    doses: [15, 20, 30],
                     id: 1 
                 },
                 { 
                     name: 'Another drug', 
-                    description: 'sflkjs fd jslkfj sdlkfj sdklfj sdlkjf kslj f',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus nisi vitae scelerisque porttitor. Ut turpis nisi, mollis vitae commodo in, auctor vitae ante. Integer eu velit erat. Pellentesque a lorem sed nunc ornare auctor ut pretium neque. Aliquam elit erat, condimentum rhoncus ullamcorper nec, efficitur lobortis purus. Nulla ex.',
+                    doses: [15, 20, 30],
                     id: 2 
                 },
                 { 
                     name: 'B drug', 
-                    description: 'sflkjs fd jslkfj sdlkfj sdklfj sdlkjf kslj f',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus nisi vitae scelerisque porttitor. Ut turpis nisi, mollis vitae commodo in, auctor vitae ante. Integer eu velit erat. Pellentesque a lorem sed nunc ornare auctor ut pretium neque. Aliquam elit erat, condimentum rhoncus ullamcorper nec, efficitur lobortis purus. Nulla ex.',
+                    doses: [15, 20, 30],
                     id: 3 
                 },
                 { 
                     name: 'C drug',
-                    description: 'sflkjs fd jslkfj sdlkfj sdklfj sdlkjf kslj f',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cursus nisi vitae scelerisque porttitor. Ut turpis nisi, mollis vitae commodo in, auctor vitae ante. Integer eu velit erat. Pellentesque a lorem sed nunc ornare auctor ut pretium neque. Aliquam elit erat, condimentum rhoncus ullamcorper nec, efficitur lobortis purus. Nulla ex.',
+                    doses: [15, 20, 30],
                     id: 4 
                 },
                 { 
                     name: 'D drug', 
                     description: 'sflkjs fd jslkfj sdlkfj sdklfj sdlkjf kslj f',
+                    doses: [15, 20, 30],
                     id: 5 
                 },
                 {
                     name: 'E drug', 
                     description: 'sflkjs fd jslkfj sdlkfj sdklfj sdlkjf kslj f',
+                    doses: [15, 20, 30],
                     id: 6 
                 }
               ];

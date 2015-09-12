@@ -7699,3 +7699,7 @@ a.button {
   opacity: 0;
   -webkit-transition-duration: 0s;
   transition-duration: 0s; }
+
+.item-input-wrapper {
+  background: transparent;
+  padding: 0; }
