@@ -49,6 +49,7 @@ angular.module('starter.controllers', [])
     
     $scope.submit = function() {
         $scope.drugs = Drugs.query({search: $scope.search.text}, function() {
+            $scope.submitted = true;
         });
     }
 })
