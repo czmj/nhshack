@@ -22,7 +22,7 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $httpProvider) {
   $stateProvider
 
     .state('app', {
@@ -53,4 +53,7 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
   
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/drugs');
+    
+    $httpProvider.defaults.useXDomain = true;
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
 });

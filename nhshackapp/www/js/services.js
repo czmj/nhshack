@@ -4,7 +4,7 @@
         .module('starter.services', [])
         .factory('Drugs', Drugs);
 
-    function Drugs($resource){          
-        return $resource('data/dummyDrugs.json');               
+    function Drugs($resource){
+        return $resource('http://nhshackday.default.tdobson.uk0.bigv.io');               
     }
 })();

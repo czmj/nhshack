@@ -42,21 +42,18 @@ angular.module('starter.controllers', [])
 })
 
 .controller('drugsCtrl', function($scope, Drugs) {
+    $scope.search = {};
+    
     $scope.drugs = Drugs.query(function() {
-    });
+    });    
+    
+    $scope.submit = function() {
+        $scope.drugs = Drugs.query({search: $scope.search.text}, function() {
+        });
+    }
 })
 
 .controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs) {
-    var drugs = Drugs.query(function() {
-        var i;
-        
-        for (i=0; i<drugs.length; i++){
-            if(drugs[i].id.toString() === $stateParams.drugId){
-                $scope.drug = drugs[i];
-                return;
-            }
-        }
-    });
     
       $scope.patient = {};
 
@@ -71,7 +68,6 @@ angular.module('starter.controllers', [])
       };
 
       $scope.openPatientInfo = function() {
-          console.log('ping');
         $scope.modal.show();
       };
 
