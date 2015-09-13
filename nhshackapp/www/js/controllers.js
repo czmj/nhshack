@@ -83,6 +83,7 @@ angular.module('starter.controllers', [])
 .controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs, ampDetails, vmpDetails) {
 
     $scope.patient = {};
+    $scope.patientOpen = false;
        
     if ($stateParams.APID) {    
         ampDetails.query({apid: $stateParams.APID}, function(res) {
@@ -95,8 +96,7 @@ angular.module('starter.controllers', [])
             $scope.drug = res[0];
             $scope.loaded = true;
         })
-    }
-        
+    } 
 
     // patient modal
       $ionicModal.fromTemplateUrl('templates/patient.html', {
@@ -106,10 +106,14 @@ angular.module('starter.controllers', [])
       });
 
       $scope.closePatient = function() {
+        $scope.patientOpen = false;
         $scope.patientModal.hide();
       };
 
-      $scope.openPatientInfo = function() {
+      $scope.openPatientInfo = function(){
+        $scope.patientOpen = true;
+        $scope.help = '';
+        $scope.error = '';
         $scope.patientModal.show();
       };
     
@@ -123,9 +127,94 @@ angular.module('starter.controllers', [])
       $scope.closeConfirm = function() {
         $scope.confirmModal.hide();
       };
+    
+    //form validation on patient fields
+     var checkPatientInfo = function() {
 
-      $scope.openConfirm = function() {
-        $scope.confirmModal.show();
+         $scope.patientDetailsValid = false;
+         
+        if(!$scope.patient.name) {
+            $scope.error = 'Please provide the patient\'s name or NHS number';
+            return;
+        }                
+        if(!$scope.patient.surgery) {
+            $scope.error = 'Please provide the patient\'s surgery or NHS number';
+            return;
+        }                
+        if(!$scope.patient.gp) {
+            $scope.error = 'Please provide the patient\'s GP or NHS number';
+            return;
+        }              
+        if(!$scope.patient.postcode) {
+            $scope.error = 'Please provide the patient\'s postcode or NHS number';
+            return;
+        }             
+        if(!$scope.patient.gender) {
+            $scope.error = 'Please provide the patient\'s gender or NHS number';
+            return;
+        }           
+        if(!$scope.patient.gender) {
+            $scope.error = 'Please provide the patient\'s age or NHS number';
+            return;
+        }
+
+        $scope.error = '';
+        $scope.patientDetailsValid = true;
+    }
+
+    // form validation on precription
+    var checkDrugInfo = function() {
+        $scope.drugDetailsValid = false;
+
+        if(!$scope.drug.strength) {
+            $scope.error = 'Please provide the prescription strength';
+             $scope.closePatient();
+            
+            return;
+        }                       
+        if(!$scope.drug.quantity) {
+            $scope.error = 'Please provide the prescription quantity';
+             $scope.closePatient();
+            return;
+        }
+        $scope.error = '';
+        $scope.drugDetailsValid = true;
+    }
+
+    //form validation on NHS number
+    var checkNHSno = function() {
+        $scope.patientDetailsValid = false;
+
+        if(!$scope.patient.nhsno) {
+            checkPatientInfo();
+            $scope.help = '(tap the ? symbol to enter patient details)';
+            return;
+        }
+        $scope.error = '';
+        $scope.help = '';
+        $scope.patientDetailsValid = true;
+    }
+
+      $scope.openConfirm = function() {   
+        
+        if($scope.patientOpen){
+            checkPatientInfo();
+            
+            if ($scope.patientDetailsValid) {
+                checkDrugInfo();
+            }
+        }
+        else {
+            checkDrugInfo();
+            
+            if ($scope.drugDetailsValid) {
+                checkNHSno();
+            }
+        }
+        
+        if ($scope.patientDetailsValid && $scope.drugDetailsValid && !$scope.error) {        
+            $scope.confirmModal.show();
+        }
       };
 
 });

@@ -3,11 +3,15 @@
     <h1 class="h3">{{drug.NAME}}</h1>
     <p>{{drug.DESC}}</p>
       
-    <form class="list" ng-submit="openConfirm()" name="drugInfo">
+    <form class="list" ng-submit="openConfirm()" name="drugInfo" novalidate>
+        
+    <p ng-show="error" class="text-assertive">
+        {{error}} {{help}}
+    </p>
 
       <label class="item item-input item-floating-label">
-        <span class="input-label">Stength (mg)</span>
-        <input type="number" placeholder="Strength (mg)" ng-model="drug.strength"required>
+        <span class="input-label">Stength</span>
+        <input type="text" placeholder="Strength" ng-model="drug.strength" required>
       </label>    
         
       <label class="item item-input item-floating-label">

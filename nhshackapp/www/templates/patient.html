@@ -6,8 +6,12 @@
     </div>
   </ion-header-bar>
   <ion-content>
-    <form ng-submit="submitPresceiption()" class="padding">
+    <form ng-submit="openConfirm()" class="padding" novalidate>
       <div class="list">
+          
+        <p ng-show="error" class="text-assertive">
+            {{error}}
+        </p>
         <label class="item item-input item-floating-label">
           <span class="input-label">Patient Name</span>
           <input type="text" placeholder="Patient name" ng-model="patient.name" required>
@@ -28,15 +32,15 @@
             <div class="input-label">
               Gender
             </div>
-            <select>
+            <select ng-model="patient.gender">
               <option>Male</option>
               <option>Female</option>
               <option>Indeterminate</option>
             </select>
         </label>
         <label class="item item-input item-floating-label">
-          <span class="input-label">Patient age</span>
-          <input type="number" placeholder="Patient age" ng-model="patient.age" required>
+          <span class="input-label">Patient age (years)</span>
+          <input type="number" placeholder="Patient age (years)" ng-model="patient.age" required>
         </label>
         <button class="button button-block button-positive" type="submit">
           Submit
