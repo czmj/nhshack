@@ -58,3 +58,8 @@ $colorvars: (light, $light), (stable, $stable), (positive, $positive), (calm, $c
     width: 30% !important;
     height: 85px !important;
 }
+
+.input-label.input-error {
+    color: $danger;
+    opacity: 1;
+}

@@ -10,19 +10,19 @@
       <div class="list">
         <label class="item item-input item-floating-label">
           <span class="input-label">Patient Name</span>
-          <input type="text" placeholder="Patient name" ng-model="patient.name">
+          <input type="text" placeholder="Patient name" ng-model="patient.name" required>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">GP Surgery</span>
-          <input type="text" placeholder="GP Surgery" ng-model="patient.surgery">
+          <input type="text" placeholder="GP Surgery" ng-model="patient.surgery" required>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">GP Name</span>
-          <input type="text" placeholder="GP name" ng-model="patient.gp">
+          <input type="text" placeholder="GP name" ng-model="patient.gp" required>
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Patient postcode</span>
-          <input type="text" placeholder="Patient postcode" ng-model="patient.postcode">
+          <input type="text" placeholder="Patient postcode" ng-model="patient.postcode" required>
         </label>
         <label class="item item-input item-select">
             <div class="input-label">
@@ -36,7 +36,7 @@
         </label>
         <label class="item item-input item-floating-label">
           <span class="input-label">Patient age</span>
-          <input type="number" placeholder="Patient age" ng-model="patient.age">
+          <input type="number" placeholder="Patient age" ng-model="patient.age" required>
         </label>
         <button class="button button-block button-positive" type="submit">
           Submit

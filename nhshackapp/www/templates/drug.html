@@ -2,23 +2,23 @@
   <ion-content class="padding">
     <h1>Placeholder name {{drug.ANAME}}</h1>
       
-    <form class="list">
+    <form class="list" ng-submit="openConfirm()" name="drugInfo">
 
       <label class="item item-input item-floating-label">
         <span class="input-label">Stength (mg)</span>
-        <input type="number" placeholder="Strength (mg)">
+        <input type="number" placeholder="Strength (mg)" ng-model="drug.strength"required>
       </label>    
         
       <label class="item item-input item-floating-label">
         <span class="input-label">Quantity</span>
-        <input type="number" placeholder="Quantity">
+        <input type="number" placeholder="Quantity" ng-model="drug.quantity" required>
       </label>    
         
       
       <div class="item item-input-inset">
         <label class="item-input-wrapper item-floating-label">
             <span class="input-label">NHS Number</span>
-            <input type="number" placeholder="NHS number">
+            <input type="number" placeholder="NHS number" ng-model="patient.nhsno">
         </label>
         <button type="button" class="button button-clear button-stable" ng-click="openPatientInfo()">
           <i class="icon ion-help-circled"></i>

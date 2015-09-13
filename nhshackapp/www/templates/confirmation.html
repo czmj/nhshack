@@ -1,0 +1,59 @@
+<ion-modal-view>
+  <ion-header-bar class="bar bar-stable">
+    <h1 class="title">Confirm</h1>
+    <div class="buttons">
+      <button class="button button-clear" ng-click="closeConfirm()">Back</button>
+    </div>
+  </ion-header-bar>
+  <ion-content>
+      <p class="padding">Please read the following information carefully and confirm the prescription:</p>
+    <form ng-submit="confirm()">
+      <div class="list">
+          <ion-item class="item-divider">
+              Medication:
+          </ion-item>
+          <ion-item>
+              Name: {{drug.ANAME}}
+          </ion-item>
+          <ion-item>
+              Strength: {{drug.strength}}mg
+          </ion-item>
+          <ion-item>
+              Quantity: {{drug.quantity}}
+          </ion-item>
+          <ion-item class="item-divider">
+              Patient information
+          </ion-item>
+          <ion-item ng-show="patient.nhsno">
+              NHS number {{patient.nhsno}}
+          </ion-item>
+          <div ng-hide="patient.nhsno">
+              <ion-item>
+                  Patient Name: {{patient.name}}
+              </ion-item>
+              <ion-item>
+                  Patient Gender: {{patient.gender}}
+              </ion-item>
+              <ion-item>
+                  Patient Age: {{patient.age}}
+              </ion-item>
+              <ion-item>
+                  Patient Postcode: {{patient.postcode}}
+              </ion-item>
+              <ion-item>
+                  Patient GP Surgery: {{patient.surgery}}
+              </ion-item>
+              <ion-item>
+                  Patient GP Name: {{patient.gp}}
+              </ion-item>
+          </div>
+          <ion-item class="item-divider">
+              Prescriber information
+          </ion-item>
+          <ion-item>
+              Prescriber name: Joe Bloggs
+          </ion-item>
+      </div>
+    </form>
+  </ion-content>
+</ion-modal-view>

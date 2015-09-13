@@ -58,7 +58,7 @@ angular.module('starter.controllers', [])
         $scope.loaded = false;
         $scope.search = {};
         
-        $scope.drugs = Drugs.get(function() {
+        $scope.drugs = Drugs.query(function() {
             $scope.loaded = true;
         });
     }
@@ -72,21 +72,41 @@ angular.module('starter.controllers', [])
 })
 
 .controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs) {
-    
-      $scope.patient = {};
 
+        $scope.patient = {};
+        
+        $scope.drug = Drugs.query(function() {
+            $scope.loaded = true;
+        });
+
+    // patient modal
       $ionicModal.fromTemplateUrl('templates/patient.html', {
         scope: $scope
       }).then(function(modal) {
-        $scope.modal = modal;
+        $scope.patientModal = modal;
       });
 
       $scope.closePatient = function() {
-        $scope.modal.hide();
+        $scope.patientModal.hide();
       };
 
       $scope.openPatientInfo = function() {
-        $scope.modal.show();
+        $scope.patientModal.show();
+      };
+    
+    // confirm modal
+      $ionicModal.fromTemplateUrl('templates/confirmation.html', {
+        scope: $scope
+      }).then(function(modal) {
+        $scope.confirmModal = modal;
+      });
+
+      $scope.closeConfirm = function() {
+        $scope.confirmModal.hide();
+      };
+
+      $scope.openConfirm = function() {
+        $scope.confirmModal.show();
       };
 
 });
