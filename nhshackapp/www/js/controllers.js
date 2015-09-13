@@ -67,17 +67,36 @@ angular.module('starter.controllers', [])
     $scope.restart();
         
 })
-.controller('disambiguationCtrl', function($scope, Drugs) {
+.controller('disambiguationCtrl', function($scope, $stateParams, $location, vmpAmps) {
+    $scope.amps = vmpAmps.query({vpid: $stateParams.VPID}, function() {
+        if ($scope.amps.length > 1){
+            $scope.drugs = $scope.amps;
+            $scope.loaded = true;
+        }
+        else {
+            $location.url('/app/drugs/' + $scope.amps[0].APID);
+        }
+    });
 
 })
 
-.controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs) {
+.controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs, ampDetails, vmpDetails) {
 
-        $scope.patient = {};
-        
-        $scope.drug = Drugs.query(function() {
+    $scope.patient = {};
+       
+    if ($stateParams.APID) {    
+        ampDetails.query({apid: $stateParams.APID}, function(res) {
+            $scope.drug = res[0];
             $scope.loaded = true;
-        });
+        })
+    }
+    else {    
+        vmpDetails.query({vpid: $stateParams.VPID}, function(res) {
+            $scope.drug = res[0];
+            $scope.loaded = true;
+        })
+    }
+        
 
     // patient modal
       $ionicModal.fromTemplateUrl('templates/patient.html', {

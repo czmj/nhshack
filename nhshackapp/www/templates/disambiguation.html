@@ -2,22 +2,16 @@
   <ion-content>
     
     <ion-list>
-        <ion-item class="item-icon-right item-main" href="#/app/drugs/{{genericDrug.APID}}">
-            {{genericDrug.ANAME}} Generic name
+        <ion-item class="item-icon-right item-main item-text-wrap" ng-href="#/app/drugs/{{drugs[0].VPID}}/">
+            {{drugs[0].VNAME}}
             <i class="icon ion-ios-arrow-forward"></i>
         </ion-item>
-        <ion-item class="item-icon-right" href="#/app/drugs/{{drug.APID}}">
-            {{drug.ANAME}} brand 1
+        <ion-item class="item-icon-right item-text-wrap" ng-repeat="drug in drugs" ng-href="#/app/drugs/{{drug.VPID}}/{{drug.APID}}">
+            {{drug.ANAME}}
             <i class="icon ion-ios-arrow-forward"></i>
         </ion-item>
-        <ion-item class="item-icon-right" href="#/app/drugs/{{drug.APID}}">
-            {{drug.ANAME}} brand 2
-            <i class="icon ion-ios-arrow-forward"></i>
         </ion-item>
-        <ion-item class="item-icon-right" href="#/app/drugs/{{drug.APID}}">
-            {{drug.ANAME}} brand 3
-            <i class="icon ion-ios-arrow-forward"></i>
-        </ion-item>
+        <ion-spinner ng-show="!loaded" icon="dots" class="spinner-dark"></ion-spinner>
     </ion-list>
   </ion-content>
 </ion-view>

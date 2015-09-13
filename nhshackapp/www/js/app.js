@@ -51,7 +51,7 @@ angular.module('starter', ['ionic', 'ngResource', 'starter.controllers', 'starte
     })
 
   .state('app.drug', {
-    url: '/drugs/:drugId',
+    url: '/drugs/:VPID/:APID?',
     views: {
       'menuContent': {
         templateUrl: 'templates/drug.html',
