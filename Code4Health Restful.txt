@@ -1,0 +1,18 @@
+POST /rest/v1/composition?ehrId=ed0b8444-7320-4f06-901a-722978edda1b&templateId=GP Summary (composition)&committerName=handi&format=FLAT HTTP/1.1
+Host: rest.ehrscape.com
+Content-Type: application/json
+Authorization: Basic aGFuZGk6UlBFY0M4NTk=
+Cache-Control: no-cache
+
+{
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/composer_name": "{{Clinician Name}}",
+    "ctx/time": "2015-09-13T12",
+    "ctx/id_namespace": "HOSPITAL-NS",
+    "ctx/id_scheme": "HOSPITAL-NS",
+    "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|value": "{{Medication name}}",
+"gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|code": "{{Medication code}}",
+"gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|terminology": "SNOMED-CT",
+       "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/dose_directions_description": "{{Dose directions}}",
+}

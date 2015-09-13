@@ -1,0 +1,12 @@
+{
+    "ctx/language": "en",
+    "ctx/territory": "GB",
+    "ctx/composer_name": "{{Clinician Name}}",
+    "ctx/time": "2015-09-13T12",
+    "ctx/id_namespace": "HOSPITAL-NS",
+    "ctx/id_scheme": "HOSPITAL-NS",
+    "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|value": "{{Medication name}}",
+"gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|code": "{{Medication code}}",
+"gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|terminology": "SNOMED-CT",
+       "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/dose_directions_description": "{{Dose directions}}",
+}
