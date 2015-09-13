@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('drugsCtrl', function($scope, Drugs) {
+.controller('drugsCtrl', function($scope, $location, $ionicPopup, $timeout, Drugs) {
     
     $scope.submit = function() {
         $scope.loaded = false;
@@ -65,7 +65,16 @@ angular.module('starter.controllers', [])
     
     //on page load
     $scope.restart();
+    
+    if($location.search().sucess){
+        var alertPopup = $ionicPopup.alert({
+         title: 'Prescription created! :)',
+       });
         
+      $timeout(function() {
+         alertPopup.close(); //close the popup after 3 seconds
+      }, 2000);
+    }    
 })
 .controller('disambiguationCtrl', function($scope, $stateParams, $location, vmpAmps) {
     $scope.amps = vmpAmps.query({vpid: $stateParams.VPID}, function() {
@@ -80,7 +89,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs, ampDetails, vmpDetails, Code4Health) {
+.controller('drugCtrl', function($scope, $stateParams, $location, $ionicModal, Drugs, ampDetails, vmpDetails, Code4Health) {
     $scope.prescriber = 'NHS hack app';
     $scope.patient = {};
     $scope.patientOpen = false;
@@ -134,7 +143,8 @@ angular.module('starter.controllers', [])
                    "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/dose_directions_description": $scope.drug.dose
             },
             function(res) {
-                $scope.success = true;
+                $location.url('app/drugs?sucess=true');
+                $scope.closeConfirm();
         })
     }
 
