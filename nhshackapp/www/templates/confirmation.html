@@ -5,8 +5,8 @@
       <button class="button button-clear" ng-click="closeConfirm()">Back</button>
     </div>
   </ion-header-bar>
-  <ion-content>
-      <p class="padding">Please read the following information carefully and confirm the prescription:</p>
+  <ion-content class="padding">
+      <p>Please read the following information carefully and confirm the prescription:</p>
     <form ng-submit="confirm()">
       <div class="list">
           <ion-item class="item-divider">
@@ -16,7 +16,7 @@
               Name: {{drug.NAME}}
           </ion-item>
           <ion-item>
-              Strength: {{drug.strength}}
+              Dose: {{drug.dose}}
           </ion-item>
           <ion-item>
               Quantity: {{drug.quantity}}
@@ -51,8 +51,9 @@
               Prescriber information
           </ion-item>
           <ion-item>
-              Prescriber name: Joe Bloggs
+              Prescriber name: {{prescriber}}
           </ion-item>
+        <button class="button button-block button-positive" type="submit">I agree</button>
       </div>
     </form>
   </ion-content>

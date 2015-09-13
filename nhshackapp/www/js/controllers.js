@@ -80,8 +80,8 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs, ampDetails, vmpDetails) {
-
+.controller('drugCtrl', function($scope, $stateParams, $ionicModal, Drugs, ampDetails, vmpDetails, Code4Health) {
+    $scope.prescriber = 'NHS hack app';
     $scope.patient = {};
     $scope.patientOpen = false;
        
@@ -97,6 +97,46 @@ angular.module('starter.controllers', [])
             $scope.loaded = true;
         })
     } 
+    
+    $scope.openConfirm = function() {   
+        if($scope.patientOpen){
+            checkPatientInfo();
+            
+            if ($scope.patientDetailsValid) {
+                checkDrugInfo();
+            }
+        }
+        else {
+            checkDrugInfo();
+            
+            if ($scope.drugDetailsValid) {
+                checkNHSno();
+            }
+        }
+        
+        if ($scope.patientDetailsValid && $scope.drugDetailsValid && !$scope.error) {        
+            $scope.confirmModal.show();
+        }
+    };
+    
+    $scope.confirm = function() { 
+        Code4Health.post(
+            {
+                "ctx/language": "en",
+                "ctx/territory": "GB",
+                "ctx/composer_name": $scope.prescriber,
+                "ctx/time": new Date().toISOString(),
+                "ctx/id_namespace": "HOSPITAL-NS",
+                "ctx/id_scheme": "HOSPITAL-NS",
+                "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|value": $scope.drug.NAME,
+            "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|code": $scope.drug.ID,
+            "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/medication_name|terminology": "SNOMED-CT",
+                   "gp_summary/medication_and_medical_devices:0/current_medication:0/medication_statement:0/medication_item/dose_directions_description": $scope.drug.dose
+            },
+            function(res) {
+                $scope.success = true;
+        })
+    }
 
     // patient modal
       $ionicModal.fromTemplateUrl('templates/patient.html', {
@@ -166,8 +206,8 @@ angular.module('starter.controllers', [])
     var checkDrugInfo = function() {
         $scope.drugDetailsValid = false;
 
-        if(!$scope.drug.strength) {
-            $scope.error = 'Please provide the prescription strength';
+        if(!$scope.drug.dose) {
+            $scope.error = 'Please provide the prescription dose';
              $scope.closePatient();
             
             return;
@@ -194,27 +234,5 @@ angular.module('starter.controllers', [])
         $scope.help = '';
         $scope.patientDetailsValid = true;
     }
-
-      $scope.openConfirm = function() {   
-        
-        if($scope.patientOpen){
-            checkPatientInfo();
-            
-            if ($scope.patientDetailsValid) {
-                checkDrugInfo();
-            }
-        }
-        else {
-            checkDrugInfo();
-            
-            if ($scope.drugDetailsValid) {
-                checkNHSno();
-            }
-        }
-        
-        if ($scope.patientDetailsValid && $scope.drugDetailsValid && !$scope.error) {        
-            $scope.confirmModal.show();
-        }
-      };
 
 });
