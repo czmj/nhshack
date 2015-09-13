@@ -7739,3 +7739,11 @@ a.button {
 
 .item-result + .no-results {
   display: none; }
+
+.spinner svg {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  -webkit-transform: translateX(-50%);
+  width: 30% !important;
+  height: 85px !important; }

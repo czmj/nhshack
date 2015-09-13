@@ -58,7 +58,7 @@ angular.module('starter.controllers', [])
         $scope.loaded = false;
         $scope.search = {};
         
-        $scope.drugs = Drugs.query({search: ' '}, function() {
+        $scope.drugs = Drugs.get(function() {
             $scope.loaded = true;
         });
     }

@@ -18,7 +18,7 @@
             {{drug.ANAME}}
             <i class="icon ion-ios-arrow-forward"></i>
         </ion-item>        
-        <ion-item class="no-results item-text-wrap" ng-hide="submitted || !loaded">
+        <ion-item class="no-results item-text-wrap" ng-show="!submitted && loaded">
             No popular items. Hit search to look for more.
         </ion-item>      
         <ion-item class="no-results item-text-wrap" ng-show="submitted && loaded && !drugs.length">
@@ -27,6 +27,8 @@
             See all
         </button>
         </ion-item>  
+        <ion-spinner ng-show="!loaded" icon="dots" class="spinner-dark"></ion-spinner>
+
     </ion-list>
   </ion-content>
 </ion-view>
